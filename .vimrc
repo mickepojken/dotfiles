@@ -5,6 +5,10 @@ let mapleader=','
 syntax enable
 set number relativenumber
 
+set tabstop=4
+set expandtab
+set shiftwidth=4
+
 command Preview :!firefox %<CR>
 
 nmap <Leader>s :w<CR>:source $MYVIMRC<CR>

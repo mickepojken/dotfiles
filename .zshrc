@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.config/rofi/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/micke/.oh-my-zsh"
@@ -105,5 +105,6 @@ alias vimrc="vim ~/.vimrc"
 alias mutt="neomutt"
 alias steam="VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/intel_icd.i686.json steam"
 alias s="sudo"
+alias confxmonad="vim ~/.xmonad/xmonad.hs"
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"

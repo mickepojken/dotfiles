@@ -1,0 +1,39 @@
+Config { font = "xft:Terminus:pixelsize=16:antialias=true:hinting=true" 
+       , additionalFonts = ["xft:FontAwesome:pixelsize=13"]
+       , borderColor = "#282c34"
+       , border = TopB
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , alpha = 180
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ 
+                    , Run Cpu ["-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Battery [
+"-t", "<acstatus>: <left>% - <timeleft>",
+"--",
+--"c", "charge_full",
+"-O", "AC",
+"-o", "Bat",
+"-h", "green",
+"-l", "red"
+
+                    ] 10 
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%cpu% | %memory% * %swap% }\
+                    \{ %battery% | <fc=#ee9a00>%date%</fc>"
+       }
