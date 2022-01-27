@@ -61,11 +61,11 @@ source $ZSH/oh-my-zsh.sh
 export LANG=sv_SE.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -83,9 +83,7 @@ alias v="vim"
 alias sv="sudo vim"
 alias vimrc="vim ~/.vimrc"
 alias mutt="neomutt"
-alias steam="VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/intel_icd.i686.json steam"
 alias s="sudo"
-alias confxmonad="vim ~/.xmonad/xmonad.hs"
 
 alias clone="git clone"
 alias add="git add"
