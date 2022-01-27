@@ -72,3 +72,37 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" Markup textwidths
+au BufRead,BufNewFile *.md setlocal textwidth=100
+au BufRead,BufNewFile *.html setlocal textwidth=100
+au BufRead,BufNewFile *.tex setlocal textwidth=100
+
+" MACROS
+
+inoremap <space><tab> <esc>/<++><cr>vf>c
+
+" vimrc
+inoremap <leader>macro autocmd filetype  inoremap <++><esc>2bhi
+
+" Markdown
+autocmd filetype markdown inoremap h1 # 
+autocmd filetype markdown inoremap h2 ## 
+autocmd filetype markdown inoremap h3 ### 
+
+" LaTeX 
+autocmd filetype tex inoremap <leader>h1 \section{}<CR><++><esc>k$i
+autocmd filetype tex inoremap <leader>h2 \subsection{}<cr><++><esc>k$i
+autocmd filetype tex inoremap <leader>h3 \subsubsection{}<cr><++><esc>k$i
+autocmd filetype tex inoremap <leader>em \emph{}<++><esc>F}i
+autocmd filetype tex inoremap <leader>bf \textbf{}<++><esc>F}i
+autocmd filetype tex inoremap <leader>ul \underline{}<++><esc>F}i
+autocmd filetype tex inoremap <leader>bl \begin{itemize}<cr>\item <cr><esc>0i\end{itemize}<cr><esc>0i<++><esc>2k$a
+autocmd filetype tex inoremap <leader>nl \begin{enumerate}<cr>\item <cr><esc>0i\end{enumerate}<cr><esc>0i<++><esc>2k$a
+
+" HTML
+autocmd filetype html inoremap <leader>h1 <h1><++></h1><cr><++><esc>k0f>i
+autocmd filetype html inoremap <leader>h2 <h2><++></h2><cr><++><esc>k0f>i
+autocmd filetype html inoremap <leader>h3 <h3><++></h3><cr><++><esc>k0f>i
+
+

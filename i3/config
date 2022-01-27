@@ -176,4 +176,5 @@ gaps inner 10
 gaps outer 10
 gaps top 30
 
+bindsym $mod+Shift+f exec --no-startup-id rofi -show filebrowser -modi filebrowser
 bindsym $mod+Shift+c exec rofi -show p -modi p:rofi-power-menu -theme Paper -font 'Terminus 16' -width 20 -lines 6 
