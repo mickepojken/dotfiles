@@ -27,7 +27,6 @@ exec_always --no-startup-id ./.fehbg &
 exec --no-startup-id nm-applet
 
 set $refresh_i3status polybar example reload
-exec_always polybar example
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -78,7 +77,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -170,6 +168,8 @@ bindsym $mod+r mode "resize"
 
 # Disable titlebars
 for_window [class="^.*"] border pixel 2
+for_window [title="VimWiki"] floating enable
+for_window [title="Scratchterm"] floating enable
 
 # Gaps
 gaps inner 10
@@ -179,3 +179,7 @@ gaps top 30
 bindsym $mod+Shift+f exec --no-startup-id rofi -show filebrowser -modi filebrowser
 bindsym $mod+Shift+c exec rofi -show p -modi p:rofi-power-menu -theme Paper -font 'Terminus 16' -width 20 -lines 6 
 bindsym $mod+Shift+s exec maim -s ~/Pictures/Screenshots/$(date)
+
+bindsym $mod+s exec --no-startup-id alacritty --title "VimWiki" -e "vim" "/home/micke/vimwiki/Scratchpad.wiki"
+bindsym $mod+n exec --no-startup-id alacritty --title "VimWiki" -e "vim" "/home/micke/vimwiki/index.wiki"
+bindsym $mod+Shift+Return exec --no-startup-id alacritty --title "Scratchterm"

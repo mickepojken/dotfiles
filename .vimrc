@@ -16,6 +16,9 @@ set shiftwidth=4
 set fileencoding=utf-8
 set encoding=utf-8
 
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
 command Preview :!firefox %<CR>
 
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -28,50 +31,17 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" PLUGINS
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-" Plug 'vim-airline/vim-airline'
+Plug 'rust-lang/rust.vim'
 Plug 'preservim/nerdtree'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
-let g:vimtex_view_method = 'mupdf'
-
-" air-line
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" Markup textwidths
-au BufRead,BufNewFile *.md setlocal textwidth=100
-au BufRead,BufNewFile *.html setlocal textwidth=100
-au BufRead,BufNewFile *.tex setlocal textwidth=70
+let g:vimtex_view_method = 'zathura'
 
 " STATUSLINE
 set laststatus=2
@@ -102,12 +72,24 @@ set statusline+=/
 set statusline+=%L)
 set statusline+=%1*
 set statusline+=\ 
+set statusline+=w:%{WordCount()}\ 
 set statusline+=%y
 hi User2 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
 hi User1 ctermbg=black ctermfg=white guibg=black guifg=white
 hi User3 ctermbg=black ctermfg=lightblue guibg=black guifg=lightblue
 hi User4 ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
 hi User5 ctermbg=black ctermfg=magenta guibg=black guifg=magenta
+
+let g:word_count=wordcount().words
+function WordCount()
+    if has_key(wordcount(),'visual_words')
+        let g:word_count=wordcount().visual_words."/".wordcount().words " count selected words
+    else
+        let g:word_count=wordcount().cursor_words."/".wordcount().words " or shows words 'so far'
+    endif
+    return g:word_count
+endfunction
+
 
 function! StatuslineMode()
     let l:mode=mode()
@@ -171,6 +153,7 @@ autocmd filetype tex inoremap <leader>bf \textbf{}<++><esc>F}i
 autocmd filetype tex inoremap <leader>ul \underline{}<++><esc>F}i
 autocmd filetype tex inoremap <leader>bl \begin{itemize}<cr>\item <cr><esc>0i\end{itemize}<cr><esc>0i<++><esc>2k$a
 autocmd filetype tex inoremap <leader>nl \begin{enumerate}<cr>\item <cr><esc>0i\end{enumerate}<cr><esc>0i<++><esc>2k$a
+autocmd filetype tex inoremap <leader>be \begin{}<cr><++><cr><esc>0i\end{<++>}<esc>2k$i
 
 " HTML
 autocmd filetype html inoremap <leader>h1 <h1><++></h1><cr><++><esc>k0f>i
