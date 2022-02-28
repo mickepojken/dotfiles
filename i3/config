@@ -179,7 +179,8 @@ gaps top 30
 
 bindsym $mod+Shift+f exec --no-startup-id rofi -show filebrowser -modi filebrowser
 bindsym $mod+Shift+c exec rofi -show p -modi p:rofi-power-menu -theme Paper -font 'Terminus 16' -width 20 -lines 6 
-bindsym --release $mod+Shift+s exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png
-bindsym $mod+s exec --no-startup-id alacritty --title "VimWiki" -e "vim" "/home/micke/vimwiki/Scratchpad.wiki"
-bindsym $mod+n exec --no-startup-id alacritty --title "VimWiki" -e "vim" "/home/micke/vimwiki/index.wiki"
+bindsym --release $mod+Shift+s exec scrot --select --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_$wx$h.png
+bindsym $mod+s exec --no-startup-id alacritty --title "VimWiki" -e "vim" "/home/micke/vimwiki/scratchpad.md"
+bindsym $mod+n exec --no-startup-id alacritty --title "VimWiki" -e "vim" "/home/micke/vimwiki/index.md"
 bindsym $mod+Shift+Return exec --no-startup-id alacritty --title "Scratchterm"
+bindsym $mod+c exec --no-startup-id alacritty --title "Scratchterm" -e "R"

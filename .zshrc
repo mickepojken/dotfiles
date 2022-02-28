@@ -84,6 +84,7 @@ alias sv="sudo vim"
 alias vimrc="vim ~/.vimrc"
 alias mutt="neomutt"
 alias s="sudo"
+alias r="r"
 
 alias clone="git clone"
 alias add="git add"

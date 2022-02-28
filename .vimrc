@@ -17,13 +17,9 @@ set fileencoding=utf-8
 set encoding=utf-8
 
 highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%82v', 100)
 
 command Preview :!firefox %<CR>
-
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -37,17 +33,27 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
-Plug 'preservim/nerdtree'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
 let g:vimtex_view_method = 'zathura'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+" STATUSLINE
 source ~/.vim/status.vim
 
 " MACROS
 
 inoremap <space><tab> <esc>/<++><cr>vf>c
+
+nnoremap <leader>D :r !doi2bib 
+
+nmap <Leader>q :q!<cr>
+nmap <Leader>wq :wq!<cr>
+
+" File movement
+let g:netrw_winsize = 30
+nnoremap <F3> :Lexplore<cr>
 
 " vimrc
 inoremap <leader>macro autocmd filetype  inoremap <++><esc>2bhi
