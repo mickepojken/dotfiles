@@ -49,7 +49,7 @@ ENABLE_CORRECTION="true"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(zsh-autosuggestions)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
