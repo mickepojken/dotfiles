@@ -76,11 +76,11 @@ export LANG=sv_SE.UTF-8
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias i3config="vim ~/.config/i3/config"
+alias zshconfig="nvim ~/.zshrc"
+alias i3config="nvim ~/.config/i3/config"
 alias p="sudo pacman"
-alias v="vim"
-alias sv="sudo vim"
+alias v="nvim"
+alias sv="sudo nvim"
 alias vimrc="vim ~/.vimrc"
 alias mutt="neomutt"
 alias s="sudo"
