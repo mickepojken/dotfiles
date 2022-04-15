@@ -1,0 +1,19 @@
+local set = vim.opt
+
+set.fileencoding='utf-8'
+set.encoding='utf-8'
+set.mouse='v'
+set.hlsearch=true
+set.incsearch=true
+set.tabstop=4
+set.softtabstop=4
+set.expandtab=true
+set.shiftwidth=4
+set.autoindent=true
+set.cc='80'
+set.mouse='a'
+set.clipboard='unnamedplus'
+set.ttyfast=true
+set.number=true
+set.relativenumber=true
+set.wrap=false
