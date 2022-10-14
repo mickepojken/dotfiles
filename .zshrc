@@ -78,13 +78,18 @@ export LANG=sv_SE.UTF-8
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias i3config="nvim ~/.config/i3/config"
+alias awconfig="nvim ~/.config/awesome/rc.lua"
 alias p="sudo pacman"
 alias v="nvim"
 alias sv="sudo nvim"
-alias vimrc="vim ~/.vimrc"
+alias ww="nvim ~/vimwiki/index.wiki"
+alias vim="nvim"
+alias vimrc="vim ~/.config/nvim/init.vim"
 alias mutt="neomutt"
 alias s="sudo"
 alias r="r"
+
+alias uni="cd ~/Documents/Universitet"
 
 alias clone="git clone"
 alias add="git add"

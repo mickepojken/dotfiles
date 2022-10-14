@@ -21,3 +21,5 @@ map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>s', ':w<cr>:source "/home/micke/.config/nvim/init.vim<cr>"', options)
 map('n', '<leader>q', ':wq!<cr>', options)
 map('i', '<space><tab>', '<esc>/<cr>vf>c', options)
+
+map('n', '<leader>c', '0i//<esc>j', options)
